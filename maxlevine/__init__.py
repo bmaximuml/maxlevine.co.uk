@@ -9,7 +9,7 @@ from wtforms import Field, Form, StringField, SubmitField, TextAreaField
 from wtforms.fields.html5 import EmailField
 from wtforms.validators import DataRequired, Email, length
 
-from benjilevinecom.models import db, Skill, Project, About
+from maxlevine.models import db, Skill, Project, About
 
 
 def create_application():
