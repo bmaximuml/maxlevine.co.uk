@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='benjilevinecom',
+    name='maxlevine.co.uk',
     version='1.1',
     long_description=__doc__,
     packages=find_packages(),
@@ -17,7 +17,7 @@ setup(
         'email-validator',
         'Flask-xCaptcha',
     ],
-    author='Benji Levine',
-    author_email='benji@benjilevine.com',
-    url='https://github.com/benjilev08/v3.benjilevine.com'
+    author='Max Levine',
+    author_email='max@maxlevine.co.uk',
+    url='https://github.com/benjilev08/maxlevine.co.uk'
 )
