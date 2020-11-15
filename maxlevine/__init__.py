@@ -27,7 +27,7 @@ def create_application():
     application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     application.config.update(
-        XCAPTCHA_SITE_KEY=environ'ML_CAPTCHA_SITE_KEY'],
+        XCAPTCHA_SITE_KEY=environ['ML_CAPTCHA_SITE_KEY'],
         XCAPTCHA_SECRET_KEY=environ['ML_CAPTCHA_SECRET_KEY'],
         XCAPTCHA_VERIFY_URL=environ['ML_CAPTCHA_VERIFY_URL'],
         XCAPTCHA_API_URL=environ['ML_CAPTCHA_API_URL'],
