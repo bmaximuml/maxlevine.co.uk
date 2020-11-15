@@ -55,35 +55,35 @@ info = {
 
 class ContactForm(Form):
     name = StringField('Name',
-                       validators=[DataRequired(), length(max=200)],
-                       render_kw={
-                           "placeholder": "Name",
-                           "class": "input",
-                           "maxlength": 200
-                       })
+        validators=[DataRequired(), length(max=200)],
+        render_kw={
+            "placeholder": "Name",
+            "class": "input",
+            "maxlength": 200
+        }
+    )
     email = EmailField('Email Address',
-                       validators=[
-                           DataRequired(),
-                           Email(message="Invalid email address"),
-                           length(max=200)
-                       ],
-                       render_kw={
-                           "placeholder": "Email",
-                           "class": "input",
-                           "maxlength": 200
-                       })
+        validators=[
+            DataRequired(),
+            Email(message="Invalid email address"),
+            length(max=200)
+        ],
+        render_kw={
+            "placeholder": "Email",
+            "class": "input",
+            "maxlength": 200
+        }
+    )
     message = TextAreaField('Message',
-                            validators=[DataRequired(), length(max=5000)],
-                            render_kw={
-                                "placeholder": "Enter your message here...",
-                                "class": "textarea",
-                                "rows": 5,
-                                "maxlength": 5000
-                            })
-    submit = SubmitField('Send',
-                         render_kw={
-                             "class": "button is-link"
-                         })
+        validators=[DataRequired(), length(max=5000)],
+        render_kw={
+            "placeholder": "Enter your message here...",
+            "class": "textarea",
+            "rows": 5,
+            "maxlength": 5000
+        }
+    )
+    submit = SubmitField('Send', render_kw={"class": "button is-link"})
 
 
 @app.route('/', methods=['POST', 'GET'])
@@ -123,13 +123,13 @@ def about():
         return redirect(url_for('about', _anchor='contact'))
 
     return render_template('index.html',
-                           year=datetime.now().year,
-                           about=about_data,
-                           projects=projects,
-                           skills=skills,
-                           form=form,
-                           **info
-                           )
+        year=datetime.now().year,
+        about=about_data,
+        projects=projects,
+        skills=skills,
+        form=form,
+        **info
+    )
 
 
 def send_message(name, email, message, subject=None):
@@ -148,11 +148,8 @@ def send_message(name, email, message, subject=None):
     msg = EmailMessage()
     msg.set_content(message)
     msg['Subject'] = f'{name} - maxlevine.com Contact Form' if subject is None else subject
-    #msg['From'] = send_to
-    #msg['From'] = name + ' <' + email + '>'
     msg['From'] = email
     msg['To'] = send_to
-#    msg['Reply-To'] = name + ' <' + email + '>'
 
     s.send_message(msg)
     s.quit()
