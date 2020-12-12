@@ -45,10 +45,10 @@ info = {
     'title' : 'Max Levine',
     'fname' : 'Max',
     'email' : 'max@maxlevine.co.uk',
-    'linkedin' : 'https://www.linkedin.com/in/benjilevine/',
+    'linkedin' : 'https://www.linkedin.com/in/bmaxlevine/',
     'github' : 'https://github.com/benjilev08',
     'cv_file' : 'assets/Max_Levine_CV.pdf',
-    'main_photo' :  'assets/portrait.jpeg',
+    'main_photo' :  'assets/portrait.jpg',
     'second_photo' : 'assets/Madrid.jpg',
     'logo' : 'assets/logo.png'
 }
