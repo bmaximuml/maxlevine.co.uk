@@ -133,7 +133,7 @@ def about():
 
 
 def send_message(name, email, message, subject=None):
-    send_to = 'contactform@maxlevine.com'
+    send_to = 'contactform@maxlevine.co.uk'
 
     s = SMTP_SSL(
         environ['MAX_LEVINE_SMTP_HOST'],
@@ -147,7 +147,7 @@ def send_message(name, email, message, subject=None):
 
     msg = EmailMessage()
     msg.set_content(message)
-    msg['Subject'] = f'{name} - maxlevine.com Contact Form' if subject is None else subject
+    msg['Subject'] = f'{name} - maxlevine.co.uk Contact Form' if subject is None else subject
     msg['From'] = email
     msg['To'] = send_to
 
