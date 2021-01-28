@@ -9,8 +9,10 @@ document.addEventListener('click', function(e) {
 
     for (const child of tabs.children) {
         child.classList.remove('is-active');
+        child.classList.remove('has-text-dark');
     }
     clicked.classList.add('is-active');
+    clicked.classList.add('has-text-dark');
 
     for (const child of projects_content.children) {
         child.classList.add('is-hidden');

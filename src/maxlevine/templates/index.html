@@ -46,7 +46,7 @@
                     <ul id="projects-tabs">
                         {% for project in projects|sort(attribute="priority") %}
                             {% if loop.first %}
-                                <li id='{{ project.name|replace(' ', '') }}' class="is-active">
+                                <li id='{{ project.name|replace(' ', '') }}' class="is-active has-text-dark">
                             {% else %}
                                 <li id='{{ project.name|replace(' ', '') }}'>
                             {% endif %}
