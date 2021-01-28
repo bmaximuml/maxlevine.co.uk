@@ -14,7 +14,7 @@ RUN set -aeux; \
 WORKDIR ${WORKDIR}${USER}
 
 # Add web files
-COPY ./ ./
+COPY src/ ./
 
 RUN pip install gunicorn .
 
