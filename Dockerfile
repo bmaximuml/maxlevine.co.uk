@@ -1,18 +1,25 @@
 FROM python:3.9-alpine
 
-RUN apk add --update --no-cache curl
+ARG USER=maxlevine
+ARG WORKDIR=/run/
 
-RUN pip install gunicorn
+RUN set -aeux; \
+    apk add --update --no-cache curl ; \
+    adduser \
+        -H \
+        -D \
+        ${USER} && \
+    export PATH=${WORKDIR}${USER}/.local/bin:${PATH}
 
-WORKDIR /var/src/maxlevine.co.uk
+WORKDIR ${WORKDIR}${USER}
 
 # Add web files
 COPY ./ ./
 
-RUN pip install .
+RUN pip install gunicorn .
 
 EXPOSE 80
-EXPOSE 9191
+# EXPOSE 9191
 
 CMD gunicorn -w 1 -b 0.0.0.0:80 maxlevine:app
 
