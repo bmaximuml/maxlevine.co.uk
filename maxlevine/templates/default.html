@@ -34,8 +34,9 @@
     {% block nav %}
         <div class="navbar-brand">
             <a class="navbar-item" href="/">
-                <img src="{{ logo }}"
-                     alt="{{ title }} logo">
+                <object type="image/svg+xml" data="{{ logo }}" alt="{{ title }} logo">
+                    <img src="{{ logo_png }}" alt="{{ title }} logo">
+                </object>
             </a>
             <a class="navbar-item" href="/">
                 <strong>{{ title }}</strong>

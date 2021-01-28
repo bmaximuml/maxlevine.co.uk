@@ -50,7 +50,8 @@ info = {
     'cv_file' : 'https://static.maxlevine.co.uk/files/Max_Levine_CV.pdf',
     'main_photo' :  'https://static.maxlevine.co.uk/images/portrait.jpg',
     'second_photo' : 'https://static.maxlevine.co.uk/images/Madrid.jpg',
-    'logo' : 'https://static.maxlevine.co.uk/images/logo.png'
+    'logo' : 'https://static.maxlevine.co.uk/images/logo.svg',
+    'logo_png' : 'https://static.maxlevine.co.uk/images/logo.png',
 }
 
 class ContactForm(Form):
