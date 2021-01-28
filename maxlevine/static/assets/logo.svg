@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="2120.771"
+   height="1720.7574"
+   viewBox="0 0 561.12065 455.28375"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="Logo_pink_blue_inverted_transparent.svg"
+   inkscape:export-filename="C:\Users\Benji\Desktop\FourEels\Max\Logo\Vector\Logo_transparent_square.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   style="enable-background:new">
+  <defs
+     id="defs2">
+    <linearGradient
+       osb:paint="gradient"
+       id="linearGradient40">
+      <stop
+         id="stop2293"
+         offset="0"
+         style="stop-color:#000000;stop-opacity:1;" />
+      <stop
+         id="stop2295"
+         offset="1"
+         style="stop-color:#000000;stop-opacity:0;" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient2289"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop2287" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient40-8"
+       osb:paint="gradient">
+      <stop
+         style="stop-color:#ff00f2;stop-opacity:1;"
+         offset="0"
+         id="stop36" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop38" />
+    </linearGradient>
+    <meshgradient
+       y="-195.12306"
+       x="-15.976992"
+       gradientUnits="userSpaceOnUse"
+       id="meshgradient9866"
+       inkscape:collect="always">
+      <meshrow
+         id="meshrow9868">
+        <meshpatch
+           id="meshpatch9870">
+          <stop
+             path="c 187.04,0  374.08,0  561.121,0"
+             style="stop-color:#ff00ff;stop-opacity:1"
+             id="stop9872" />
+          <stop
+             path="c 0,151.761  0,303.523  0,455.284"
+             style="stop-color:#00d4aa;stop-opacity:1"
+             id="stop9874" />
+          <stop
+             path="c -187.04,0  -374.08,0  -561.121,0"
+             style="stop-color:#ff00ff;stop-opacity:1"
+             id="stop9876" />
+          <stop
+             path="c 0,-151.761  0,-303.523  0,-455.284"
+             style="stop-color:#00d4aa;stop-opacity:1"
+             id="stop9878" />
+        </meshpatch>
+      </meshrow>
+    </meshgradient>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.3535534"
+     inkscape:cx="789.77181"
+     inkscape:cy="938.74503"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     inkscape:pagecheckerboard="true"
+     borderlayer="false"
+     inkscape:showpageshadow="true"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:snap-to-guides="true">
+    <sodipodi:guide
+       position="0,0"
+       orientation="0,2120.771"
+       id="guide9882"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="561.12066,0"
+       orientation="-1720.7574,0"
+       id="guide9884"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="561.12066,455.28374"
+       orientation="0,-2120.771"
+       id="guide9886"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="0,455.28374"
+       orientation="1720.7574,0"
+       id="guide9888"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(15.976992,195.12306)"
+     style="display:inline;opacity:1">
+    <g
+       id="g6529">
+      <path
+         id="path3763"
+         style="fill:none;stroke:url(#meshgradient9866);stroke-width:31.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 529.16666,32.41664 423.33333,244.0833 M 264.58332,-73.416692 H 370.41666 M 0,32.41664 105.83333,-179.25002 211.66667,32.41664 317.5,-179.25002 423.33333,32.41664 529.16666,244.0833"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+</svg>
