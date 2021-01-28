@@ -12,7 +12,7 @@
                 <div class="column is-hidden-tablet">
                     <div class="notification is-info is-marginless">
                         <figure class="image is-square">
-                            <img src="{{ url_for('static', filename=main_photo) }}" alt="{{ title }} portrait">
+                            <img src="{{ main_photo }}" alt="{{ title }} portrait">
                         </figure>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                 <div class="column is is-one-third has-text-centered is-hidden-mobile">
                     <div class="notification is-info">
                         <figure class="image is-square">
-                            <img src="{{ url_for('static', filename=main_photo) }}" alt="{{ title }} portrait">
+                            <img src="{{ main_photo }}" alt="{{ title }} portrait">
                         </figure>
                     </div>
                 </div>
@@ -126,7 +126,7 @@
                             {% if skill.img %}
                                 <div class="image">
                                     <a href="{{ skill.url }}">
-                                        <img src="{{ url_for('static', filename="assets/icons/" + skill.img) }}" alt="{{ skill.name }} Logo">
+                                        <img src="{{ skill.img }}" alt="{{ skill.name }} Logo">
                                     </a>
                                 </div>
                             {% endif %}
@@ -169,11 +169,11 @@
             <div class="columns">
                 <div class="column notification is-one-third is-light is-hidden-mobile">
                     <div class="image is-square">
-                        <img src="{{ url_for('static', filename=second_photo) }}" alt="{{ title }} photo">
+                        <img src="{{ second_photo }}" alt="{{ title }} photo">
                     </div>
                 </div>
                 <div class="column notification is-light">
-                    <a class="button is-primary is-fullwidth is-large" href="{{ url_for('static', filename=cv_file) }}">
+                    <a class="button is-primary is-fullwidth is-large" href="{{ cv_file }}">
                         <strong>
                             Download {{ fname }}'s CV here
                         </strong>
@@ -181,7 +181,7 @@
                 </div>
                 <div class="column notification is-one-third is-light is-hidden-tablet">
                     <div class="image is-square">
-                        <img src="{{ url_for('static', filename=second_photo) }}" alt="{{ title }} photo">
+                        <img src="{{ second_photo }}" alt="{{ title }} photo">
                     </div>
                 </div>
             </div>
