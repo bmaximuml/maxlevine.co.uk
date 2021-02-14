@@ -19,5 +19,5 @@ setup(
     ],
     author='Max Levine',
     author_email='max@maxlevine.co.uk',
-    url='https://github.com/benjilev08/maxlevine.co.uk'
+    url='https://github.com/bmaximuml/maxlevine.co.uk'
 )
