@@ -240,37 +240,9 @@
                 </div>
 
                 <div class="column notification is-light">
-                    <div class="buttons">
-                        <a class="button is-medium is-fullwidth is-dark" href="{{ linkedin }}">
-                            <span class="icon">
-                                <i class="fab fa-linkedin"></i>
-                            </span>
-                            <span class="is-size-6-mobile">
-                                LinkedIn
-                            </span>
-                        </a>
-                    </div>
-                    <div class="buttons">
-                        <a class="button is-medium is-fullwidth" href="{{ github }}">
-                            <span class="icon">
-                                <i class="fab fa-github"></i>
-                            </span>
-                            <span class="is-size-6-mobile">
-                                GitHub
-                            </span>
-                        </a>
-
-                    </div>
-                    <div class="buttons">
-                        <a class="button is-medium is-fullwidth is-dark" href="mailto:{{ email }}">
-                            <span class="icon">
-                                <i class="fas fa-envelope"></i>
-                            </span>
-                            <span class="is-size-6-mobile">
-                                {{ email }}
-                            </span>
-                        </a>
-                    </div>
+                    {{ macros.button_icon_link(linkedin, '', 'LinkedIn', 'fab fa-linkedin', True) }}
+                    {{ macros.button_icon_link(github, '', 'GitHub', 'fab fa-github', False) }}
+                    {{ macros.button_icon_link(email, 'mailto:', email, 'fas fa-envelope', True) }}
                 </div>
             </div>
         </div>

@@ -43,3 +43,21 @@
     </footer>
 {%- endmacro %}
 
+
+{%- macro button_icon_link(link, link_prefix, name, icon_classes, is_dark) -%}
+    <div class="buttons">
+        <a class="button is-medium is-fullwidth{{ ' is-dark' if is_dark else ''}}" href="{{ link_prefix }}{{ link }}">
+            <span class="icon">
+                <i class="{{ icon_classes }}"></i>
+            </span>
+            <span class="is-size-6-mobile">
+                {{ name }}
+            </span>
+        </a>
+    </div>
+{%- endmacro %}
+
+{#
+{%- macro name() -%}
+{%- endmacro %}
+#}
