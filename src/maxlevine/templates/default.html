@@ -1,3 +1,5 @@
+{% import "macros.html" as macros %}
+
 <!DOCTYPE html>
 <html lang="en-gb" class="has-navbar-fixed-top">
 <head>
@@ -12,32 +14,13 @@
     <script type='text/javascript' src='{{ url_for('static', filename='scripts.js') }}'></script>
     <script src="https://hcaptcha.com/1/api.js?hl=en" async defer></script>
     
-    <!-- Matomo -->
-    <script type="text/javascript">
-        var _paq = window._paq = window._paq || [];
-        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-        _paq.push(['trackPageView']);
-        _paq.push(['enableLinkTracking']);
-        _paq.push(['enableHeartBeatTimer']);
-        (function() {
-            var u="//matomo.maxlevine.co.uk/";
-            _paq.push(['setTrackerUrl', u+'matomo.php']);
-            _paq.push(['setSiteId', '1']);
-            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-            g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-        })();
-    </script>
-    <!-- End Matomo Code -->
+    {{ macros.matomo_tracker() }}
 </head>
 <body>
 <nav class="navbar is-fixed-top is-primary" role="navigation" aria-label="main navigation">
     {% block nav %}
         <div class="navbar-brand">
-            <a class="navbar-item" href="/">
-                <object type="image/svg+xml" data="{{ logo }}" alt="{{ title }} logo">
-                    <img src="{{ logo_png }}" alt="{{ title }} logo">
-                </object>
-            </a>
+            {{ macros.logo_if_defined() }}
             <a class="navbar-item" href="/">
                 <strong>{{ title }}</strong>
             </a>
@@ -51,21 +34,11 @@
 
         <div id="main_navbar" class="navbar-menu slideout">
             <div class="navbar-end">
-                <a class="navbar-item" href="/#about">
-                    About
-                </a>
-                <a class="navbar-item" href="/#projects">
-                    Projects
-                </a>
-                <a class="navbar-item" href="/#skills">
-                    Skills
-                </a>
-                <a class="navbar-item" href="/#cv">
-                    CV
-                </a>
-                <a class="navbar-item" href="/#contact">
-                    Contact
-                </a>
+                {{ macros.navbar_item('/#about', About)}}
+                {{ macros.navbar_item('/#projects', Projects)}}
+                {{ macros.navbar_item('/#skills', Skills)}}
+                {{ macros.navbar_item('/#cv', CV)}}
+                {{ macros.navbar_item('/#contact', Contact)}}
             </div>
         </div>
     {% endblock %}
@@ -73,13 +46,7 @@
 <section>
     {% block content %}{% endblock %}
 </section>
-<footer class="footer is-link hero is-paddingless">
-    <div class="content has-text-centered hero-body">
-        <p>
-            <strong class="has-text-light">{{ title }}</strong> &#169; {{ year }}
-        </p>
-    </div>
-</footer>
+{{ macros.footer(title, year) }}
 </body>
 </html>
 

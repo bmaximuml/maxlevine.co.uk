@@ -1,0 +1,45 @@
+{%- macro matomo_tracker() -%}
+    <!-- Matomo -->
+    <script type="text/javascript">
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        _paq.push(['enableHeartBeatTimer']);
+        (function() {
+            var u="//matomo.maxlevine.co.uk/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '1']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    <!-- End Matomo Code -->
+{%- endmacro %}
+
+{%- macro navbar_item(link, text) -%}
+                <a class="navbar-item" href="{{link}}">
+                    {{ text }}
+                </a>
+{%- endmacro %}
+
+{%- macro logo_if_defined() -%}
+    {% if logo is defined and logo|length %}
+        <a class="navbar-item" href="/">
+            <object type="image/svg+xml" data="{{ logo }}" alt="{{ title }} logo">
+                <img src="{{ logo_png }}" alt="{{ title }} logo">
+            </object>
+        </a>
+    {% endif %}
+{%- endmacro %}
+
+{%- macro footer(author, year) -%}
+    <footer class="footer is-link hero is-paddingless">
+        <div class="content has-text-centered hero-body">
+            <p>
+                <strong class="has-text-light">{{ author }}</strong> &#169; {{ year }}
+            </p>
+        </div>
+    </footer>
+{%- endmacro %}
+
