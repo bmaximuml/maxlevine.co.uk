@@ -1,9 +1,12 @@
+import logging
+
 from datetime import datetime
 from email.message import EmailMessage
 from flask import Flask, flash, render_template, request, redirect, url_for
 from flask_xcaptcha import XCaptcha
 from os import environ
 from requests import post
+from secrets import token_hex
 from smtplib import SMTP_SSL, SMTPRecipientsRefused
 from wtforms import Field, Form, StringField, SubmitField, TextAreaField
 from wtforms.fields.html5 import EmailField
@@ -11,31 +14,88 @@ from wtforms.validators import DataRequired, Email, length
 
 from maxlevine.models import db, Skill, Project, About
 
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+ENV_VAR_PREFIX='ML_'
+
+REQUIRED_VARS = [
+    'DB_USERNAME',
+    'DB_PASSWORD',
+    'DB_HOST',
+    'DB_PORT',
+    'DB_DRIVER',
+    'DB_NAME',
+    'SMTP_HOST',
+    'SMTP_USERNAME',
+    'SMTP_PASSWORD',
+    'SMTP_PORT',
+    'XCAPTCHA_SITE_KEY',
+    'XCAPTCHA_SECRET_KEY',
+    'XCAPTCHA_VERIFY_URL',
+    'XCAPTCHA_API_URL',
+    'XCAPTCHA_DIV_CLASS',
+]
+OPTIONAL_VARS = [
+    ('SECRET_KEY', token_hex(64)),
+    ('TITLE', 'Max Levine'),
+    ('AUTHOR', 'Max Levine')
+]
+
+def read_file(file):
+    with open(file, 'r') as f:
+        result = f.read().strip()
+        return result
+
 
 def create_application():
-    application = Flask(__name__)
-    application.secret_key = environ['FLASK_SECRET_KEY']
-    sqlalchemy_database_uri = (
-        'mysql+mysqlconnector://{}:{}@{}:{}/benjilevine.com'.format(
-            environ['MAX_LEVINE_DB_USERNAME'],
-            environ['MAX_LEVINE_DB_PASSWORD'],
-            environ['MAX_LEVINE_DB_HOST'],
-            environ['MAX_LEVINE_DB_PORT']
+    app = Flask(__name__)
+    for var in REQUIRED_VARS:
+        env_var = f'{ENV_VAR_PREFIX}{var}'
+        try:
+            app.config[var.lower()] = read_file(environ[f'{env_var}_FILE'])
+        except (KeyError, FileNotFoundError):
+            try:
+                app.config[var.lower()] = environ[env_var]
+            except KeyError:
+                raise KeyError(f'{env_var} environment variable must be set')
+
+    # for var, default in OPTIONAL_VARS:
+    for var, default in OPTIONAL_VARS:
+        env_var = f'{ENV_VAR_PREFIX}{var}'
+        try:
+            app.config[var.lower()] = read_file(environ[f'{env_var}_FILE'])
+        except (KeyError, FileNotFoundError):
+            try:
+                app.config[var.lower()] = environ[env_var]
+            except KeyError:
+                app.config[var.lower()] = default
+
+    db_driver = app.config.get('db_driver').lower().strip()
+    if db_driver == 'mysql':
+        sqlalchemy_database_uri = (
+            'mysql+mysqlconnector://{}:{}@{}:{}/{}'.format(
+                app.config.get('db_username'),
+                app.config.get('db_password'),
+                app.config.get('db_host'),
+                app.config.get('db_port'),
+                app.config.get('db_name'),
+            )
         )
-    )
-    application.config['SQLALCHEMY_DATABASE_URI'] = sqlalchemy_database_uri
-    application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+        app.config.update({
+            'SQLALCHEMY_DATABASE_URI': sqlalchemy_database_uri,
+            'SQLALCHEMY_TRACK_MODIFICATIONS': False,
+        })
+    app.secret_key = app.config.get('secret_key')
+    app.config.update({
+        'XCAPTCHA_SITE_KEY': app.config.get('xcaptcha_site_key'),
+        'XCAPTCHA_SECRET_KEY': app.config.get('xcaptcha_secret_key'),
+        'XCAPTCHA_VERIFY_URL': app.config.get('xcaptcha_verify_url'),
+        'XCAPTCHA_API_URL': app.config.get('xcaptcha_api_url'),
+        'XCAPTCHA_DIV_CLASS': app.config.get('xcaptcha_div_class'),
+    })
 
-    application.config.update(
-        XCAPTCHA_SITE_KEY=environ['ML_CAPTCHA_SITE_KEY'],
-        XCAPTCHA_SECRET_KEY=environ['ML_CAPTCHA_SECRET_KEY'],
-        XCAPTCHA_VERIFY_URL=environ['ML_CAPTCHA_VERIFY_URL'],
-        XCAPTCHA_API_URL=environ['ML_CAPTCHA_API_URL'],
-        XCAPTCHA_DIV_CLASS=environ['ML_CAPTCHA_DIV_CLASS']
-    )
-
-    db.init_app(application)
-    return application
+    db.init_app(app)
+    return app
 
 
 app = create_application()
