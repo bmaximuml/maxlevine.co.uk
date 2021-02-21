@@ -107,6 +107,7 @@ info = {
     'email' : 'max@maxlevine.co.uk',
     'linkedin' : 'https://www.linkedin.com/in/bmaxlevine/',
     'github' : 'https://github.com/bmaximuml',
+    'gitlab' : 'https://gitlab.com/bmaximuml',
     'cv_file' : 'https://static.maxlevine.co.uk/files/Max_Levine_CV.pdf',
     'main_photo' :  'https://static.maxlevine.co.uk/images/portrait.jpg',
     'second_photo' : 'https://static.maxlevine.co.uk/images/Madrid.jpg',
