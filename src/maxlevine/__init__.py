@@ -156,7 +156,7 @@ def about():
 
     form = ContactForm(request.form)
     if request.method == 'POST':
-        if form.validate() and xcaptcha.verify():      
+        if form.validate() and xcaptcha.verify():
             try:
                 send_message(form.name.data, form.email.data, form.message.data)
                 flash('Message successfully sent!')
@@ -177,7 +177,7 @@ def about():
                     e
                 )
         elif not form.validate():
-            flash('Invalid data supplied, message not sent.')            
+            flash('Invalid data supplied, message not sent.')
         elif not xcaptcha.verify():
             flash('Bot suspected, message not sent.')
         else:
@@ -198,13 +198,13 @@ def send_message(name, email, message, subject=None):
     send_to = 'contactform@maxlevine.co.uk'
 
     s = SMTP_SSL(
-        environ['MAX_LEVINE_SMTP_HOST'],
-        environ['MAX_LEVINE_SMTP_PORT']
+        app.config.get('smtp_host'),
+        app.config.get('smtp_port')
     )
 
     s.login(
-        environ['MAX_LEVINE_SMTP_USERNAME'],
-        environ['MAX_LEVINE_SMTP_PASSWORD']
+        app.config.get('smtp_username'),
+        app.config.get('smtp_password')
     )
 
     msg = EmailMessage()
