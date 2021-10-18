@@ -13,7 +13,7 @@
     <script type='text/javascript' src='{ url_for('static', filename='fontawesome/js/all.min.js') }}"'></script>
     <script type='text/javascript' src='{{ url_for('static', filename='scripts.js') }}'></script>
     <script src="https://hcaptcha.com/1/api.js?hl=en" async defer></script>
-    
+
     {{ macros.matomo_tracker() }}
 </head>
 <body>
@@ -34,11 +34,11 @@
 
         <div id="main_navbar" class="navbar-menu slideout">
             <div class="navbar-end">
-                {{ macros.navbar_item('/#about', About)}}
-                {{ macros.navbar_item('/#projects', Projects)}}
-                {{ macros.navbar_item('/#skills', Skills)}}
-                {{ macros.navbar_item('/#cv', CV)}}
-                {{ macros.navbar_item('/#contact', Contact)}}
+                {{ macros.navbar_item('/#about', 'About')}}
+                {{ macros.navbar_item('/#projects', 'Projects')}}
+                {{ macros.navbar_item('/#skills', 'Skills')}}
+                {{ macros.navbar_item('/#cv', 'CV')}}
+                {{ macros.navbar_item('/#contact', 'Contact')}}
             </div>
         </div>
     {% endblock %}
