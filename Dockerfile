@@ -1,15 +1,21 @@
-FROM python:3.9-alpine
+FROM python:3.9.7-bullseye
 
 ARG USER=maxlevine
 ARG WORKDIR=/run/
 
+#RUN set -aeux; \
+#    apk add --update --no-cache curl ; \
+#    adduser \
+#        -H \
+#        -D \
+#        ${USER} && \
+#    export PATH=${WORKDIR}${USER}/.local/bin:${PATH}
+
 RUN set -aeux; \
-    apk add --update --no-cache curl ; \
-    adduser \
-        -H \
-        -D \
-        ${USER} && \
-    export PATH=${WORKDIR}${USER}/.local/bin:${PATH}
+  apt-get update && apt-get install -y curl ; \
+  rm -rf /var/lib/apt/lists/* ; \
+  useradd -M ${USER} && \
+  export PATH=${WORKDIR}${USER}/.local/bin:${PATH}
 
 WORKDIR ${WORKDIR}${USER}
 
