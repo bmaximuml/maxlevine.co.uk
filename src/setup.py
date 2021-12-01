@@ -9,11 +9,11 @@ setup(
     zip_safe=True,
     install_requires=[
         'datetime',
-        'Flask',
+        'Flask==1.1.2',
         'Flask-SQLAlchemy',
         'mysql-connector-python',
         'requests',
-        'WTForms',
+        'WTForms==2.3.3',
         'email-validator',
         'Flask-xCaptcha',
     ],
