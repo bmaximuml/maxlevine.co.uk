@@ -1,4 +1,4 @@
-FROM python:3.9.7-bullseye
+FROM python:3.10.0-bullseye
 
 ARG USER=maxlevine
 ARG WORKDIR=/run/
