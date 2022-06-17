@@ -8,8 +8,7 @@ from os import environ
 from requests import post
 from secrets import token_hex
 from smtplib import SMTP_SSL, SMTPRecipientsRefused
-from wtforms import Field, Form, StringField, SubmitField, TextAreaField
-from wtforms.fields.html5 import EmailField
+from wtforms import EmailField, Field, Form, StringField, SubmitField, TextAreaField
 from wtforms.validators import DataRequired, Email, length
 
 from maxlevine.models import db, Skill, Project, About
